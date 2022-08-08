@@ -39,3 +39,7 @@
 
 ## Notes
 * Add whatever you want here
+
+## Ideas
+1. Make players enter their names before they start playing and display them
+2. Show the winning persons name when they win
