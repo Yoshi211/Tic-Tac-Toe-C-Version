@@ -34,8 +34,8 @@
 
 ## Progress
 ### 8/8/2022
-Made the grid with numbers in each section
-Started to code the interactive aspect
+* Made the grid with numbers in each section
+* Started to code the interactive aspect
 
 ## Notes
 * Add whatever you want here
