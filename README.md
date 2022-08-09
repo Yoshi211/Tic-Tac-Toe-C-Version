@@ -33,9 +33,9 @@
 5. Polish the project
 
 ## Progress
-### 2/8/2022
-* Add whatever you want here
-*dear diary, today I wrote c++*
+### 8/8/2022
+Made the grid with numbers in each section
+Started to code the interactive aspect
 
 ## Notes
 * Add whatever you want here
