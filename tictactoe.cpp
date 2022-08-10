@@ -4,11 +4,19 @@ using namespace std;
 int main() {
 
   //Declaring varibles for both players
-  string playerX = "Player 1 (X)";
-  string playerO = "Player 2 (O)";
+  string playerX;
+  string playerO;
+
+  //Players enter their names
+  cout << "Enter Player 1's name: ";
+  cin >> playerX;
+
+  cout << "Enter Player 2's name: ";
+  cin >> playerO;
 
   //Displaying the players
-  cout << "\n" << playerX << " | " << playerO << "\n";
+  cout << "\n\n   " << playerX << " (X) | " << playerO << " (O)" << "\n";
+
 
   //Creating the grid
   for (int i = 0; i < 9; i++) {
@@ -23,16 +31,33 @@ int main() {
       //Printing the horizontal lines
       if (i == 2 || i == 5){
         cout << "\n -----------------------";
-      }      
+      }     
   }
 
-  string playerTurn = "Yash";
+  bool playerXTurn = true;
   int playerNum;
 
-  cout << "\n " << playerTurn << " pick a number 1 - 9: ";
-  cin >> playerNum;
+  string xSymbol = "x";
+  string oSymbol = "o";
 
-  cout << "Your number " << playerNum;
+
+  for (int i = 0; i < 9; i++){
+
+      if (playerXTurn == true){
+        cout << "\n " << playerX << " pick a number and click enter: ";
+        cin >> playerNum;
+
+        playerXTurn = false;
+      } else {
+        cout << "\n " << playerO << " pick a number and click enter: ";
+        cin >> playerNum;
+
+        playerXTurn = true;
+      }
+      
+    cout << "Your number is: " << playerNum;
+  }
+
 
   return 0;
 }
