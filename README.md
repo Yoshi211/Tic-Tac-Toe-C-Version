@@ -37,6 +37,11 @@
 * Made the grid with numbers in each section
 * Started to code the interactive aspect
 
+### 9/8/2022
+* Finetuned the grid
+* Made it so players can enter their own names and it displays them
+* Made it so players can enter a number on their turn 
+
 ## Notes
 * Add whatever you want here
 
