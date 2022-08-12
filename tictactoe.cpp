@@ -14,48 +14,43 @@ int main() {
   cout << "Enter Player 2's name: ";
   cin >> playerO;
 
-  //Displaying the players
-  cout << "\n\n   " << playerX << " (X) | " << playerO << " (O)" << "\n";
-
-
-  //Creating the grid
-  for (int i = 0; i < 9; i++) {
-
-      //Printing the vertical lines with the numbers
-      if (i == 1 || i == 4 || i == 7){
-        cout << "\n    " << i << "   |   " << i + 1 << "   |   " << i + 2;
-      } else {
-        cout << "\n        |       |";
-      }
-
-      //Printing the horizontal lines
-      if (i == 2 || i == 5){
-        cout << "\n -----------------------";
-      }     
-  }
-
+  char gridValues[9] = {'1','2','3','4','5','6','7','8','9'};
   bool playerXTurn = true;
   int playerNum;
 
-  string xSymbol = "x";
-  string oSymbol = "o";
 
+  for (int i = 0; i < 9; i++) {
 
-  for (int i = 0; i < 9; i++){
+      cout << "\n----------------------------------\n\n   " << playerX << " (X) | " << playerO << " (O)" << "\n";
+
+      for (int j = 0; j < 9; j++) {
+
+        //Printing the vertical lines with the numbers and X/O's
+        if (j == 1 || j == 4 || j == 7){
+          cout << "\n    " << gridValues[j-1] << "   |   " << gridValues[j] << "   |   " << gridValues[j+1];
+        } else {
+          cout << "\n        |       |";
+        }
+
+        //Printing the horizontal lines
+        if (j == 2 || j == 5){
+          cout << "\n -----------------------";
+        }
+      }
 
       if (playerXTurn == true){
-        cout << "\n " << playerX << " pick a number and click enter: ";
+        cout << "\n\n" << playerX << " pick a number and click enter: ";
         cin >> playerNum;
-
+            
+        gridValues[playerNum-1] = 'X';
         playerXTurn = false;
       } else {
-        cout << "\n " << playerO << " pick a number and click enter: ";
+        cout << "\n\n" << playerO << " pick a number and click enter: ";
         cin >> playerNum;
 
+        gridValues[playerNum-1] = 'O'; 
         playerXTurn = true;
       }
-      
-    cout << "Your number is: " << playerNum;
   }
 
 
