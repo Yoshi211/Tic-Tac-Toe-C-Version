@@ -43,7 +43,9 @@
 * Made it so players can enter a number on their turn 
 
 ### 12/8/2022
-*
+* Made it so a new grid is printed when a number is entered
+* The new grid is updated with a X or O on the correct spot
+* Cleaned up the code by combining the 2 for loops
 
 ## Errors to Fix
 1. Make it so letters can't be inputed
