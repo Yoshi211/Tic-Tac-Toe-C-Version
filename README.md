@@ -42,8 +42,12 @@
 * Made it so players can enter their own names and it displays them
 * Made it so players can enter a number on their turn 
 
-## Notes
-* Add whatever you want here
+### 12/8/2022
+*
+
+## Errors to Fix
+1. Make it so letters can't be inputed
+2. Make it so you cannot enter a number that has already been entered
 
 ## Ideas
 1. Make players enter their names before they start playing and display them
