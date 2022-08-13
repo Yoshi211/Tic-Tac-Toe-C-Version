@@ -31,6 +31,7 @@
 3. Sogi reviews and suggests improvements.
 4. Implement improvements
 5. Polish the project
+6. Video Document of Code + Demo
 
 ## Progress
 ### 8/8/2022
