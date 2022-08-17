@@ -32,6 +32,7 @@
 4. Implement improvements
 5. Polish the project
 6. Video Document of Code + Demo
+7. (undecided) Human vs Computer game
 
 ## Progress
 ### 8/8/2022
