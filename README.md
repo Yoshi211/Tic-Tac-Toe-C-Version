@@ -51,7 +51,8 @@
 
 ### 18/8/2022
 * Made function winCondition to check when someone has won the game
-* 
+* Made it so the game can check when the players tied
+* Made it so the game says the name of the player who won or if they tied
 
 ## Errors to Fix
 1. Make it so letters can't be inputed
