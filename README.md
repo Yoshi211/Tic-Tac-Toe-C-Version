@@ -49,6 +49,10 @@
 * The new grid is updated with a X or O on the correct spot
 * Cleaned up the code by combining the 2 for loops
 
+### 18/8/2022
+* Made function winCondition to check when someone has won the game
+* 
+
 ## Errors to Fix
 1. Make it so letters can't be inputed
 2. Make it so you cannot enter a number that has already been entered
