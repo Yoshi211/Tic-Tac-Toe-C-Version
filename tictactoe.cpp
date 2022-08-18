@@ -57,7 +57,10 @@ int main() {
 
 
       if (i == 9) {
-        cout << playerX << " and " << playerO << " have tied!";
+        cout << "\n\n" << playerX << " and " << playerO << " have tied!";
+        
+        playerOTurn = false;
+        playerXTurn = false;
       }
 
 
