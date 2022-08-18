@@ -25,12 +25,12 @@ int main() {
   string playerX = "Yash";
   string playerO = "Isha";
 
-  // //Players enter their names
-  // cout << "Enter Player 1's name: ";
-  // cin >> playerX;
+  //Players enter their names
+  cout << "Enter Player 1's name: ";
+  cin >> playerX;
 
-  // cout << "Enter Player 2's name: ";
-  // cin >> playerO;
+  cout << "Enter Player 2's name: ";
+  cin >> playerO;
 
   for (i = 0; i < 10; i++) {
 
@@ -38,7 +38,7 @@ int main() {
       winCondition('O');
 
       cout << "\n----------------------------------\n\n   " << playerX << " (X) | " << playerO << " (O)" << "\n";
-      cout << i;
+      //  cout << i;
 
       for (int j = 0; j < 9; j++) {
           
