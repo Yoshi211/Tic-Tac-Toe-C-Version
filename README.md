@@ -54,10 +54,14 @@
 * Made it so the game can check when the players tied
 * Made it so the game says the name of the player who won or if they tied
 
+### 20/8/2022
+* Fixed the error where you can input a number that has already been entered
+* Added comments to help understand the code
+
 ## Errors to Fix
 1. Make it so letters can't be inputed
-2. Make it so you cannot enter a number that has already been entered
+2. ~~Make it so you cannot enter a number that has already been entered
 
 ## Ideas
-1. Make players enter their names before they start playing and display them
-2. Show the winning persons name when they win
+- [x] Make players enter their names before they start playing and display them
+- [x] Show the winning persons name when they win
