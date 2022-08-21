@@ -1,12 +1,15 @@
 #include <iostream>
 using namespace std;
 
+//Stating the winCondition function
 void winCondition(char symbol);
 
+//Stating the array that holds the values of each section in the game
 char gridValues[9] = {'1','2','3','4','5','6','7','8','9'};
 
 int i;
 
+//Stating variables to be used in the code
 bool playerXTurn = true;
 bool playerOTurn = false;
 int playerNum;
@@ -25,37 +28,38 @@ int main() {
   string playerX = "Yash";
   string playerO = "Isha";
 
-  //Players enter their names
-  cout << "Enter Player 1's name: ";
-  cin >> playerX;
+  // //Players enter their names
+  // cout << "Enter Player 1's name: ";
+  // cin >> playerX;
 
-  cout << "Enter Player 2's name: ";
-  cin >> playerO;
+  // cout << "Enter Player 2's name: ";
+  // cin >> playerO;
 
   for (i = 0; i < 10; i++) {
 
+      //Calling the winCondition function to check if X or O won
       winCondition('X');
       winCondition('O');
 
+      //Displaying which play controls X and which controls O
       cout << "\n----------------------------------\n\n   " << playerX << " (X) | " << playerO << " (O)" << "\n";
-      //  cout << i;
 
       for (int j = 0; j < 9; j++) {
-          
-        //Printing the vertical lines with the numbers and X/O's
+
+        //Printing the vertical lines for the grid with the numbers and X/O's in the middle
         if (j == 1 || j == 4 || j == 7){
           cout << "\n    " << gridValues[j-1] << "   |   " << gridValues[j] << "   |   " << gridValues[j+1];
         } else {
           cout << "\n        |       |";
         }
 
-         //Printing the horizontal lines
+        //Printing the horizontal lines for the grid
         if (j == 2 || j == 5){
             cout << "\n -----------------------";
           }
         }
 
-
+      //Code to check for a tie
       if (i == 9) {
         cout << "\n\n" << playerX << " and " << playerO << " have tied!";
         
@@ -63,28 +67,58 @@ int main() {
         playerXTurn = false;
       }
 
-
+      //Code to run when it is player X's turn
       if (playerXTurn == true){
         cout << "\n\n" << playerX << " pick a number and click enter: ";
         cin >> playerNum;
-              
-        gridValues[playerNum-1] = 'X';
 
-        playerXTurn = false;
-        playerOTurn = true;
-          
+        for (int l = 0; l < 2; l++) {
+
+          //Checking to make sure this number has not already been entered
+          if (gridValues[playerNum-1] == 'X' || gridValues[playerNum-1] == 'O') {
+            cout << "\n" << playerX << " pick a number that hasn't been chosen and click enter: ";
+            cin >> playerNum;
+            l--;
+
+          } else {
+            //Updating the value for that section
+            gridValues[playerNum-1] = 'X';
+
+            //Changing it to player O's turn
+            playerXTurn = false;
+            playerOTurn = true;
+
+            l = 2;
+          }
+        }
       } else 
+      //Code to run when it is player O's turn
       if (playerOTurn == true) {
         cout << "\n\n" << playerO << " pick a number and click enter: ";
         cin >> playerNum;
 
-        gridValues[playerNum-1] = 'O'; 
+        for (int l = 0; l < 2; l++) {
 
-        playerOTurn = false;
-        playerXTurn = true;
+          //Checking to make sure this number has not already been entered
+          if (gridValues[playerNum-1] == 'X' || gridValues[playerNum-1] == 'O') {
+            cout << "\n" << playerO << " pick a number that hasn't been chosen and click enter: ";
+            cin >> playerNum;
+            l--;
+
+          } else {
+            //Updating the value for that section
+            gridValues[playerNum-1] = 'O';
+
+            //Changing it to player X's turn
+            playerXTurn = true;
+            playerOTurn = false;
+
+            l = 2;
+          }
+        }
       }
 
-
+      //To display when someone has won
       if (playerXWin == true){ 
         cout << "\n\n" << playerX << " win's!";
       } else 
@@ -96,17 +130,21 @@ int main() {
   return 0;
 }
 
-
+//Function to check when someone has won
 void winCondition(char symbol) {
   for (int k = 0; k < 8; k+=winConditionIncrements) {
 
-      //cout << "\n\n" << symbol << "\n k: " << k << "\n wci: " << winConditionIncrements << "\n c1: " << check1 << "\n c2: " << check2;
-
+      //If statement to check if the symbol in 3 specfic indexs in the gridValues array are the same as that would mean someone won
       if (gridValues[k] == symbol && gridValues[k+check1] == symbol && gridValues[k+check2] == symbol) {
+
+        //To stop the computer from asking for numbers for the players to enter
         playerOTurn = false;
         playerXTurn = false;
+
+        //To stop printing the grid
         i = 10;
 
+        //Changes the variable to which player had won
         if (symbol == 'X') {
           playerXWin = true;
         } else {
@@ -114,6 +152,7 @@ void winCondition(char symbol) {
         }
       }
 
+      //Switch the if statment to check if anyone won in the horizontal rows
       if (k == 2 && winConditionIncrements == 1) {
         check1 = 1;
         check2 = 2;
@@ -121,6 +160,7 @@ void winCondition(char symbol) {
         k = -3;
       }
 
+      //Switch the if statment to check if anyone won in the diagonial line from left to right
       if (k == 6) {
         check1 = 4;
         check2 = 8;
@@ -128,11 +168,13 @@ void winCondition(char symbol) {
         k = -2;
       }
 
+      //Switch the if statment to check if anyone won in the diagonial line from right to left
       if (k == 0 && winConditionIncrements == 2) {
         check1 = 2;
         check2 = 4;
       }
 
+      //Switch the if statment back to checking verticallly and ending the loop
       if (k == 2 && winConditionIncrements == 2) {
         check1 = 3;
         check2 = 6; 
