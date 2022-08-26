@@ -61,6 +61,7 @@
 ## Errors to Fix
 1. Make it so letters can't be inputed
 2. ~~Make it so you cannot enter a number that has already been entered~~
+3. Make it so mulitple numbers can't be inputed at once
 
 ## Ideas
 - [x] Make players enter their names before they start playing and display them
