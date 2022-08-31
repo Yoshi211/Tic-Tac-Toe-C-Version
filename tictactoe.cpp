@@ -8,10 +8,13 @@ void winCondition(char symbol);
 char gridValues[9] = {'1','2','3','4','5','6','7','8','9'};
 
 int i;
+int a;
 
 //Stating variables to be used in the code
 bool playerXTurn = true;
 bool playerOTurn = false;
+string checkLength;
+char checkPlayerNum; 
 int playerNum;
 
 bool playerXWin = false; 
@@ -70,15 +73,52 @@ int main() {
       //Code to run when it is player X's turn
       if (playerXTurn == true){
         cout << "\n\n" << playerX << " pick a number and click enter: ";
-        cin >> playerNum;
+        cin >> checkLength;
 
         for (int l = 0; l < 2; l++) {
+
+          for (int z = 0; z < 2; z++) {
+            if (checkLength.length() > 1){
+              cout << playerX << " please only enter 1 number: ";
+              cin >> checkLength;
+              z--;
+            } else {
+              checkPlayerNum = checkLength[0]; 
+              z = 2;
+            }
+          }
+
+          //Checking to make sure the input is not a letter
+          for (a = 1; a < 10; a++) {
+            if (checkPlayerNum == a + 48) {
+              playerNum = checkPlayerNum - 48; 
+              a = 11;
+            } else
+            if (a == 9) {
+              cout << "\n" << playerX << " please enter a number on the grid, not a letter: ";
+              cin >> checkLength;
+              break;
+            }
+          }
+
+          if (a == 9) {
+            cout << "continuing";
+            l--;
+            continue;
+          }
 
           //Checking to make sure this number has not already been entered
           if (gridValues[playerNum-1] == 'X' || gridValues[playerNum-1] == 'O') {
             cout << "\n" << playerX << " pick a number that hasn't been chosen and click enter: ";
-            cin >> playerNum;
+            cin >> checkPlayerNum;
             l--;
+
+          } else 
+          //Checking to make sure the number is between 1 and 9
+          if (playerNum > 9 || playerNum < 1){
+            cout << "\n" << playerX << " pick a number that is on the grid: ";
+            cin >> checkPlayerNum;
+            l--; 
 
           } else {
             //Updating the value for that section
@@ -92,19 +132,39 @@ int main() {
           }
         }
       } else 
+      
       //Code to run when it is player O's turn
       if (playerOTurn == true) {
         cout << "\n\n" << playerO << " pick a number and click enter: ";
-        cin >> playerNum;
+        cin >> checkPlayerNum;
 
         for (int l = 0; l < 2; l++) {
+          //Checking to make sure the input is not a letter
+          for (a = 1; a < 10; a++) {
+            if (checkPlayerNum == a + 48) {
+              playerNum = checkPlayerNum - 48; 
+              a = 11;
+            } else
+            if (a == 9) {
+              cout << "\n" << playerO << " please enter a number on the grid, not a letter: ";
+              cin >> checkPlayerNum;
+              a = 0;
+            }
+          }
 
           //Checking to make sure this number has not already been entered
           if (gridValues[playerNum-1] == 'X' || gridValues[playerNum-1] == 'O') {
             cout << "\n" << playerO << " pick a number that hasn't been chosen and click enter: ";
-            cin >> playerNum;
+            cin >> checkPlayerNum;
             l--;
 
+          } else 
+          //Checking to make sure the number is between 1 and 9
+          if (playerNum > 9 || playerNum < 1){
+            cout << "\n" << playerO << " pick a number that is on the grid: ";
+            cin >> checkPlayerNum;
+            l--; 
+            
           } else {
             //Updating the value for that section
             gridValues[playerNum-1] = 'O';
