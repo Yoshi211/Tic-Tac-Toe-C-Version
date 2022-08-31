@@ -58,6 +58,11 @@
 * Fixed the error where you can input a number that has already been entered
 * Added comments to help understand the code
 
+### 26/8/2022 - 30/8/2022
+* Worked on fixing and fixed error where you can input a letter
+* Made it so letters that are not on the grid cannot be input
+* Working on system so muliple numbers/letters cannot be input
+
 ## Errors to Fix
 1. ~~Make it so letters can't be inputed~~
 2. ~~Make it so you cannot enter a number that has already been entered~~
