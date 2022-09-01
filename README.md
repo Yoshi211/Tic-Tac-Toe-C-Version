@@ -63,10 +63,14 @@
 * Made it so letters that are not on the grid cannot be input
 * Working on system so muliple numbers/letters cannot be input
 
+### 31/8/2022
+* Made it so muiltple numbers or letters cannot be input
+* Brushed up some of the code
+
 ## Errors to Fix
 1. ~~Make it so letters can't be inputed~~
 2. ~~Make it so you cannot enter a number that has already been entered~~
-3. Make it so mulitple numbers can't be inputed at once
+3. ~~Make it so mulitple numbers can't be inputed at once~~
 
 ## Ideas
 - [x] Make players enter their names before they start playing and display them
