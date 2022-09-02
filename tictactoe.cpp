@@ -5,10 +5,14 @@ using namespace std;
 void winCondition(char symbol);
 
 //Stating the array that holds the values of each section in the game
+// SOGI; While this is perfectly fine for our case, Change this from a 1 dimensional array to a 2D array (3x3). Other functions and things will need to be adjusted accordingly
+// https://www.geeksforgeeks.org/multidimensional-arrays-c-cpp/
 char gridValues[9] = {'1','2','3','4','5','6','7','8','9'};
 
 int i;
 int a;
+// SOGI: Might be easier to say int i,a;. Do this wherever you see fit, it's cleaner.
+// SOGI: Also, more descriptive names would be helpful so others (including yourself in the future) can easily understand.
 
 //Stating variables to be used in the code
 bool playerXTurn = true;
@@ -21,6 +25,7 @@ int playerNum;
 bool playerXWin = false; 
 bool playerOWin = false;
 
+// Sogi: For example, this name doesn't fully explain what it does, or how it's used. Changing the name may help, or a comment. Readability is very important in code since it can be confusing.
 int check1 = 3;
 int check2 = 6;
 int winConditionIncrements = 1;
@@ -39,9 +44,10 @@ int main() {
   cout << "Enter Player 2's name: ";
   cin >> playerO;
 
-  for (i = 0; i < 10; i++) {
+  for (i = 0; i < 10; i++) { //SOGI: If you're using int i here, and almost only here, perhaps you can just do for(int i=0; i<10; i++){
 
       //Calling the winCondition function to check if X or O won
+      // SOGI: Question... Since we only execute winCondition here, and we always call X and O sequentially, can't we have winCondition process both X and O at the same time? if not, leave it
       winCondition('X');
       winCondition('O');
 
@@ -71,6 +77,7 @@ int main() {
         playerXTurn = false;
       }
 
+      //Sogi: there seems to be a significant amount of same code between both players run. Perhaps this can be combined to reduce the amount of code?
       //Code to run when it is player X's turn
       if (playerXTurn == true){
         cout << "\n\n" << playerX << " pick a number and click enter: ";
@@ -82,7 +89,7 @@ int main() {
             cout << "\n" <<playerX << " please only enter 1 number: ";
             cin >> checkLength;
             l--;
-            continue;
+            continue; // Sogi: Generally speaking continues are alright, but not considered "best practice"
           } else {
             checkPlayerNum = checkLength[0]; 
           }
@@ -92,7 +99,7 @@ int main() {
             if (checkPlayerNum == a + 48) {
               playerNum = checkPlayerNum - 48; 
               a = 10;
-              break;
+              break; // Sogi: Generally speaking breaks are alright, but not considered "best practice"
             } else
             if (a == 9) {
               cout << "\n" << playerX << " please enter a number on the grid, not a letter: ";
@@ -193,6 +200,8 @@ int main() {
 }
 
 //Function to check when someone has won
+// SOGI: usually in comments, it's wise to write what is being inputed and what's being outputed
+// SOGI: Perhaps this function should take in char symbol and return a boolean if that symbol has won or not. Whoever called this function can act upon the results. Data modification probably shouldn't take place here.
 void winCondition(char symbol) {
   for (int k = 0; k < 8; k+=winConditionIncrements) {
 
@@ -206,6 +215,11 @@ void winCondition(char symbol) {
         //To stop printing the grid
         i = 10;
 
+        //SOGI: This can actually be made much tighter by doing like this:
+        // if(symbol == 'X') playerXWin=true;
+        // else playerOWin=true;
+        // Basically {} is called a code block for when u have multiple lines of code. if you only have one line of code, it's technically not needed.
+        // Consider doing this in other places, but it's your call.
         //Changes the variable to which player had won
         if (symbol == 'X') {
           playerXWin = true;
@@ -214,6 +228,7 @@ void winCondition(char symbol) {
         }
       }
 
+      //SOGI: while this is a great solution, I want to revisit this with a Hash map instead. It would be a little more efficient. Come to me after you've done the other stuff.
       //Switch the if statment to check if anyone won in the horizontal rows
       if (k == 2 && winConditionIncrements == 1) {
         check1 = 1;
