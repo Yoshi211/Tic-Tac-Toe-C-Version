@@ -67,6 +67,9 @@
 * Made it so muiltple numbers or letters cannot be input
 * Brushed up some of the code
 
+### 1/9/2022
+* Sogi adds comments for improvement
+
 ## Errors to Fix
 1. ~~Make it so letters can't be inputed~~
 2. ~~Make it so you cannot enter a number that has already been entered~~
