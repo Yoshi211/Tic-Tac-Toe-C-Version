@@ -75,6 +75,8 @@
 2. ~~Make it so you cannot enter a number that has already been entered~~
 3. ~~Make it so mulitple numbers can't be inputed at once~~
 
+4. 
+
 ## Ideas
 - [x] Make players enter their names before they start playing and display them
 - [x] Show the winning persons name when they win
